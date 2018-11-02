@@ -204,6 +204,12 @@ You can change the configurations by editing `frasco.config.js`.
         options: array  
         example: `["pluginA.js", "pluginB.js", "main.js"]`
 
+    - #### entry
+
+        File name of JavaScript library to copy elements to clipboard.
+
+        default: `["clipboard.js"]`  
+
 - ### sass
 
     Sass settings.

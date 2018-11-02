@@ -1,0 +1,25 @@
+{% if site.url.size > 0 %}
+  {% assign shareLink = site.url | append: page.url %}
+{% endif %}
+
+<div class="share">
+  <ul>
+    <li>
+      <a href="{{ site.data.language.meta.facebook }}{{ shareLink }}" rel="nofollow" target="_blank" title="Share on Facebook"><i class="icon icon-facebook"></i></a>
+    </li>
+    <li>
+      <a href="{{ site.data.language.meta.twitter }}{{ page.title | escape }}&url={{ shareLink }}&via=CSIS&related=CSIS" rel="nofollow" target="_blank" title="Share on Twitter"><i class="icon icon-twitter"></i></a>
+    </li>
+    <li>
+      <a href="{{ site.data.language.meta.linkedin }}{{ include.shareLink | absolute_url }}" rel="nofollow" target="_blank" title="Share on LinkedIn"><i class="icon icon-linkedin"></i></a>
+    </li>
+    <li>
+      <a href="{{ site.data.language.meta.mail }}{{ site.title | escape }}: {{ page.title | escape }}&amp;body={{ shareLink }}"><i class="icon icon-email-plane"></i></a>
+    </li>
+    <li>
+      <i class="icon icon-link" data-clipboard-target="#sharePageLink" aria-label="Copied!" ></i>
+    </li>
+  </ul>
+</div>
+
+<script src="https://unpkg.com/clipboard@2.0.0/dist/clipboard.min.js"></script>

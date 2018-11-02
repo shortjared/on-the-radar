@@ -8,12 +8,12 @@ layout: default
     <div class="post__content-type">Content Type</div>
   </header>
   <section class="post__meta">
+    {% include social-share.html %}
     {%- include authors-list.html -%}
     Published<br />
     <span class="post__meta-label">Last Updated:</span> {{ page.last-modified-date | date: '%B %d, %Y' }}<br />
     <span class="post__meta-label">Last Updated:</span> {{ page.last-modified-date }}<br />
     Photo Caption
-    Social Share
   </section>
   <section class="post__img-container">
     {% include post-image.html %}
@@ -34,7 +34,7 @@ layout: default
   </section>
 
   <section class="post__footer">
-    Social Share<br />
+    {% include social-share.html %}
     {% include authors-block.html %}
     Related Reading<br />
     - Tags<br />
