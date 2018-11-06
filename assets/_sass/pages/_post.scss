@@ -69,6 +69,7 @@
     padding: content-padding('small');
     color: $color__off-black;
     background-color: $color__white;
+    position: relative;
 
     @each $size in $sizes {
       @include breakpoint($size) {
