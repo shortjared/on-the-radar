@@ -1,8 +1,5 @@
-{% assign breadcrumb_first = 'Home' %}
-{% assign breadcrumb_first_url = '/' %}
-{% if page.collection == 'authors' %}
-  {% assign breadcrumb_first = 'Analysis' %}
-  {% assign breadcrumb_first_url = breadcrumb_first | relative_url %}
+{% if post.collection.size > 0 %}
+  {% assign page = post %}
 {% endif %}
 {% assign breadcrumb_past = null %}
 {% assign breadcrumb_current = page.title %}
