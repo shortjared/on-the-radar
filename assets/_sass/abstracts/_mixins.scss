@@ -130,10 +130,11 @@
   }
 }
 
-@mixin social-share-padding() {
+@mixin social-share-header() {
+  display: none;
+
   @include breakpoint('large') {
-    display: grid;
-    align-items: right;
+    // display: grid;
     margin-right: calc(-1 * #{$size_wrapper-padding});
   }
 }

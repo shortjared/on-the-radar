@@ -1,7 +1,6 @@
 /*==================================
 =          Social Share            =
 ==================================*/
-
 .share {
   margin: 0;
   padding: 0;
@@ -22,22 +21,21 @@
     transition: inherit;
   }
 
-  .post__meta & {
-    display: hidden;
-    @include social-share-padding;
-
-    li {
-      line-height: 1.5;
-    }
-
-    i {
-      color: $color__blue;
-
-      &:hover {
-        color: $color__blue-dark;
-      }
-    }
-  }
+  // .post__meta & {
+  //   @include social-share-header;
+  //
+  //   li {
+  //     line-height: 1.5;
+  //   }
+  //
+  //   i {
+  //     color: $color__blue;
+  //
+  //     &:hover {
+  //       color: $color__blue-dark;
+  //     }
+  //   }
+  // }
 
   .post__footer & {
     display: flex;
@@ -46,7 +44,6 @@
     align-items: center;
     padding-bottom: 0.5em;
     border-bottom: 0.1em solid $color__gray-light;
-
     @include breakpoint('large') {
       justify-content: left;
       align-items: left;
