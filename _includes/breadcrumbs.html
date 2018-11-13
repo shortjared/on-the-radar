@@ -1,5 +1,6 @@
-{% if post.collection.size > 0 %}
-  {% assign page = post %}
+{% if page.layout == 'archive' %}
+  {% assign breadcrumb_past = site.collections | where: "label", page.collection | first %}
+  {% assign breadcrumb_current = site.collections | where: "label", page.collection | first %}
 {% endif %}
 {% assign breadcrumb_past = null %}
 {% assign breadcrumb_current = page.title %}
