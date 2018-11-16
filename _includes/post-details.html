@@ -4,23 +4,23 @@
 {% endif %}
 
 {% if details %}
-<ul class="post__details-list">
-    <li class="post__details-item">{{ site.data.language.details.title }}</li>
+<ul class="post__details">
+    <li class="post__details-title">{{ site.data.language.details.title }}</li>
       {% if page.collection == 'posts' %}
-        <ul class="details__subtitle">{{ site.data.language.details.categories }}</ul>
+        <ul class="post__details-subtitle">{{ site.data.language.details.categories }}</ul>
         {% for detail in details %}
-          <li class="details__type">{{ detail }}</li>
+          <li class="post__details-item">{{ detail }}</li>
         {% endfor %}
       {% else %}
-      <li class="post__details-item">
+      <li class="post__details-title">hello?</li>
         {% for detail in details %}
-          <div class="details__info">
-            <div class="details__subtitle">{{ detail[0] | replace: "_", " " | title }}</div>
+            <ul class="post__details-subtitle">{{ detail[0] | replace: "_", " " | title }}</ul>
             {% for sub_detail in detail[1] %}
-              <div class="details__type">{{ sub_detail | date: site.date_format }}</div>
+              <li class="post__details-item">{{ sub_detail | date: site.date_format }}</li>
             {% endfor %}
-          </div>
         {% endfor %}
       {% endif %}
+      <li class="post__details-title">Download</li>
+      <li class="post__details-title">Related Briefs</li>
 </ul>
 {% endif %}

@@ -1,11 +1,22 @@
-.details {
+.post__details {
+  padding: 0;
+  margin: 0;
 
+  ul {
+    @include breakpoint($break: 'medium', $until: 'large') {
+      display: inline-block;
+      width: 32%;
+      vertical-align: top;
+    }
+  }
+  
   ul,
   li {
+    padding: 0;
     list-style: none;
   }
 
-  &__title {
+  &-title {
     @extend %facets__section-title;
     padding-bottom: 0.6em;
     text-transform: uppercase;
@@ -14,21 +25,20 @@
   &__info {
     padding-bottom: 0.5em;
 
-    @include breakpoint($break: 'medium', $until: 'large') {
-      display: inline-block;
-      width: 32%;
-      vertical-align: top;
-    }
+
   }
 
-  &__subtitle {
+  &-subtitle {
     @extend %labeltext__subheading;
-    padding-bottom: 0.3em;
+    padding-bottom: 0.5em;
     text-transform: uppercase;
+    text-align: left;
   }
 
   &__type {
     @extend %labeltext__text;
     padding-bottom: 0.2em;
   }
+
+
 }
