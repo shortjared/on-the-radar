@@ -3,24 +3,36 @@
   {% assign details = page.categories %}
 {% endif %}
 
-{% if details %}
+
 <ul class="post__details">
+  {% if details %}
     <li class="post__details-title">{{ site.data.language.details.title }}</li>
       {% if page.collection == 'posts' %}
+        <div>
         <ul class="post__details-subtitle">{{ site.data.language.details.categories }}</ul>
         {% for detail in details %}
           <li class="post__details-item">{{ detail }}</li>
+        <div>
         {% endfor %}
       {% else %}
-      <li class="post__details-title">hello?</li>
         {% for detail in details %}
+          <div>
             <ul class="post__details-subtitle">{{ detail[0] | replace: "_", " " | title }}</ul>
             {% for sub_detail in detail[1] %}
               <li class="post__details-item">{{ sub_detail | date: site.date_format }}</li>
             {% endfor %}
+          </div>
         {% endfor %}
       {% endif %}
-      <li class="post__details-title">Download</li>
-      <li class="post__details-title">Related Briefs</li>
+  {% endif %}
+  <div>
+    <ul class="post__details-title">Download</ul>
+      <li class="post__details-item">Download example</li>
+      <li class="post__details-item">Download example</li>
+      <li class="post__details-item">Download example</li>
+  </div>
+  <div>
+    <ul class="post__details-title">Related Briefs</ul>
+      <li class="post__details-item">Related Briefs example</li>
+  </div>
 </ul>
-{% endif %}
