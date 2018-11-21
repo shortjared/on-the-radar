@@ -3,42 +3,45 @@
   margin: 0;
 
   ul {
-    @include breakpoint($break: 'medium', $until: 'large') {
-      display: inline-block;
-      width: 32%;
-      vertical-align: top;
-    }
+    display: inline-block;
+    padding: 0;
+
+    // @include breakpoint($break: 'medium', $until: 'large') {
+    //   // display: flex;
+    //   width: 32%;
+    //   vertical-align: top;
+    //   padding: 2rem;
+    // }
   }
-  
+
   ul,
   li {
-    padding: 0;
     list-style: none;
   }
 
   &-title {
     @extend %facets__section-title;
-    padding-bottom: 0.6em;
+    padding: 0.3rem 0 0.6rem 0;
     text-transform: uppercase;
-  }
-
-  &__info {
-    padding-bottom: 0.5em;
-
-
   }
 
   &-subtitle {
     @extend %labeltext__subheading;
-    padding-bottom: 0.5em;
+    padding: 0.3rem 0 0.5rem 0;
     text-transform: uppercase;
     text-align: left;
   }
 
-  &__type {
+  &-item {
     @extend %labeltext__text;
-    padding-bottom: 0.2em;
+    padding: 0 0 0.2rem 0;
   }
 
-
+  div {
+    @include breakpoint($break: 'medium', $until: 'large') {
+      display: flex;
+      verticle-align: top;
+      padding: 2rem;
+    }
+  }
 }
