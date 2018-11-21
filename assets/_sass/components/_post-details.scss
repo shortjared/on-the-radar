@@ -5,13 +5,6 @@
   ul {
     display: inline-block;
     padding: 0;
-
-    // @include breakpoint($break: 'medium', $until: 'large') {
-    //   // display: flex;
-    //   width: 32%;
-    //   vertical-align: top;
-    //   padding: 2rem;
-    // }
   }
 
   ul,
@@ -30,11 +23,13 @@
     padding: 0.3rem 0 0.5rem 0;
     text-transform: uppercase;
     text-align: left;
+    display: block;
   }
 
   &-item {
     @extend %labeltext__text;
     padding: 0 0 0.2rem 0;
+    display: block;
   }
 
   div {
