@@ -4,36 +4,47 @@
 {% endif %}
 
 {% assign downloads = page.downloads %}
-{% if page.collection == 'posts' %}
-  {% assign details = page.categories %}
+{% if page.collection == 'posts' or page.collection == 'resources' %}
+  {% assign downloads = null %}
 {% endif %}
 
-<ul class="post__details">
-  {% if details %}
-    <li class="post__details-title">{{ site.data.language.details.title }}</li>
+{% assign related_briefs = page.related_briefs %}
+{% if page.collection == 'resources' %}
+  {% assign related_briefs = null %}
+{% endif %}
+
+{% if details %}
+  <ul class="post__details">
+    <ul class="post__details-title">{{ site.data.language.details.title }}</ul>
       {% if page.collection == 'posts' %}
         <ul class="post__details-subtitle">{{ site.data.language.details.categories }}</ul>
         {% for detail in details %}
-          <li class="post__details-item">{{ detail }}</li>
-        <div>
+          <li class="post__details-item detail-list">{{ detail }}</li>
         {% endfor %}
       {% else %}
         {% for detail in details %}
-          <div>
-            <ul class="post__details-subtitle">{{ detail[0] | replace: "_", " " | title }}</ul>
+            <ul class="post__details-subtitle detail">{{ detail[0] | replace: "_", " " | title }}</ul>
             {% for sub_detail in detail[1] %}
-              <li class="post__details-item">{{ sub_detail | date: site.date_format }}</li>
+              <li class="post__details-item detail-list">{{ sub_detail | date: site.date_format }}</li>
             {% endfor %}
-          </div>
         {% endfor %}
       {% endif %}
-  {% endif %}
-  <div>
-    <ul class="post__details-title">Download</ul>
-      <li class="post__details-item"><a href="">Download example <i class="icon icon-download"></i></a></li>
-  </div>
-  <div>
-    <ul class="post__details-title">Related Briefs</ul>
-      <li class="post__details-item">Related Briefs example</li>
-  </div>
-</ul>
+  </ul>
+{% endif %}
+{% if downloads %}
+  <ul class="post__downloads">
+    {% for download in downloads %}
+      <ul class="post__details-title download">Download</ul>
+        <li class="post__details-item download-list"><a href={{ download.media_upload }}>{{ download.label }} <i class="icon icon-download"></i></a></li>
+    {% endfor %}
+  </ul>
+{% endif %}
+{% if related_briefs %}
+  <ul class="post__related">
+    {% for related in related_briefs %}
+    {%- assign related_info = site.posts | where: "relative_path", related | first -%}
+      <ul class="post__details-title related">Related Briefs</ul>
+        <li class="post__details-item related-list"><a href="{{ related_info.url | relative_url }}" class="authors-block__name">{{ related_info.title }}</a></li>
+    {% endfor %}
+  </ul>
+{% endif %}

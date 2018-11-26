@@ -5,6 +5,7 @@
   ul {
     display: inline-block;
     padding: 0;
+    margin: 0;
   }
 
   ul,
@@ -14,12 +15,8 @@
 
   &-title {
     @extend %facets__section-title;
-    padding: 0.3rem 0 0.6rem 0;
+    padding: 0.6rem 0;
     text-transform: uppercase;
-    @include breakpoint($break: 'medium', $until: 'large') {
-      flex: 1;
-      flex-shrink: 0;
-    }
   }
 
   &-subtitle {
@@ -28,27 +25,30 @@
     text-align: left;
     text-transform: uppercase;
     display: block;
-    @include breakpoint($break: 'medium', $until: 'large') {
-      flex: 1;
-    }
   }
 
   &-item {
     @extend %labeltext__text;
     display: block;
     padding: 0 0 0.2rem 0;
-    @include breakpoint($break: 'medium', $until: 'large') {
-      flex: 1;
-    }
   }
 
   i {
     color: $color__orange;
+  }
 
-    &:hover {
+  .download {
+    &-list {
+
+      &:hover {
+        color: $color__orange;
+      }
+
+      i:hover {
         color: $color__orange-dark;
         transition: inherit;
       }
+    }
   }
 
   @include breakpoint($break: 'medium', $until: 'large') {
