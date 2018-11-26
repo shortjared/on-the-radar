@@ -1,6 +1,6 @@
 .post__details {
-  padding: 0;
   margin: 0;
+  padding: 0;
 
   ul {
     display: inline-block;
@@ -16,27 +16,48 @@
     @extend %facets__section-title;
     padding: 0.3rem 0 0.6rem 0;
     text-transform: uppercase;
+    @include breakpoint($break: 'medium', $until: 'large') {
+      flex: 1;
+      flex-shrink: 0;
+    }
   }
 
   &-subtitle {
     @extend %labeltext__subheading;
     padding: 0.3rem 0 0.5rem 0;
-    text-transform: uppercase;
     text-align: left;
+    text-transform: uppercase;
     display: block;
+    @include breakpoint($break: 'medium', $until: 'large') {
+      flex: 1;
+    }
   }
 
   &-item {
     @extend %labeltext__text;
-    padding: 0 0 0.2rem 0;
     display: block;
+    padding: 0 0 0.2rem 0;
+    @include breakpoint($break: 'medium', $until: 'large') {
+      flex: 1;
+    }
   }
 
-  div {
-    @include breakpoint($break: 'medium', $until: 'large') {
+  i {
+    color: $color__orange;
+
+    &:hover {
+        color: $color__orange-dark;
+        transition: inherit;
+      }
+  }
+
+  @include breakpoint($break: 'medium', $until: 'large') {
+    vertical-align: top;
+    margin: 0;
+    padding: 0;
+
+    ul {
       display: flex;
-      verticle-align: top;
-      padding: 2rem;
     }
   }
 }
